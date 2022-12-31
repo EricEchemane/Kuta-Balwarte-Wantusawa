@@ -36,7 +36,7 @@
 		margin: auto;
 		padding: 1rem;
 		display: flex;
-		justify-content: space-evenly;
+		justify-content: space-between;
 		gap: 2rem;
 	}
 
@@ -73,7 +73,7 @@
 		place-items: center;
 	}
 	.right img {
-		width: 30vmax;
+		width: max(30vmax, 400px);
 	}
 	.dish {
 		--size: 8vmax;
@@ -121,6 +121,9 @@
 		.left {
 			align-items: center;
 			text-align: center;
+		}
+		.right img {
+			width: max(30vmax, 300px);
 		}
 	}
 </style>
