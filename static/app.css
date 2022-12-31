@@ -140,3 +140,15 @@ button.outlined:active {
 	box-shadow: var(--shadow);
 	filter: brightness(0.9);
 }
+
+@keyframes rotateCW {
+	100% {
+		rotate: 360deg;
+	}
+}
+
+@keyframes rotateCCW {
+	100% {
+		rotate: -360deg;
+	}
+}

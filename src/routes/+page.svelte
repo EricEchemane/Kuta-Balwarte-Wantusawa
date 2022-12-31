@@ -23,6 +23,10 @@
 	</section>
 	<section class="right">
 		<img src="/images/delivery rider 2.png" alt="delivery rider" />
+		<div class="dish" />
+		<div class="dish" />
+		<div class="dish" />
+		<div class="dish" />
 	</section>
 </main>
 
@@ -33,7 +37,7 @@
 		padding: 1rem;
 		display: flex;
 		justify-content: space-between;
-		min-height: 100vh;
+		/*min-height: 100vh;*/
 		gap: 2rem;
 	}
 
@@ -69,6 +73,42 @@
 	}
 	.right img {
 		width: 40vmax;
+	}
+	.dish {
+		--size: 10vmax;
+		width: var(--size);
+		height: var(--size);
+		border-radius: 50%;
+		padding: 1rem;
+		box-shadow: var(--shadow);
+		position: absolute;
+		display: grid;
+		place-items: center;
+		overflow: hidden;
+		background-size: 100%;
+		border: 1vmax solid white;
+	}
+	.dish:nth-child(2) {
+		background-image: url('/images/dish2.jpg');
+		top: 0;
+		left: 0;
+	}
+	.dish:nth-child(3) {
+		background-image: url('/images/dish3.jpg');
+		top: 20%;
+		right: -10%;
+	}
+	.dish:nth-child(4) {
+		background-image: url('/images/dish4.jpg');
+		bottom: 0;
+		right: 0;
+	}
+	.dish:nth-child(5) {
+		background-image: url('/images/dish5.jpg');
+		bottom: 0;
+		left: 0;
+		translate: -70% -50%;
+		scale: 1.3;
 	}
 
 	/* ===================================== */
