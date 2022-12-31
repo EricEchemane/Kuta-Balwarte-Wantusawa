@@ -5,6 +5,10 @@
 	export let form: ActionData;
 </script>
 
+<svelte:head>
+	<title>Login | Kuta Balwarte Wantusawa</title>
+</svelte:head>
+
 <form method="post" use:enhance>
 	<div>
 		<input type="text" name="email" placeholder="Your email" required />

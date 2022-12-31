@@ -25,6 +25,10 @@
 	};
 </script>
 
+<svelte:head>
+	<title>Register | Kuta Balwarte Wantusawa</title>
+</svelte:head>
+
 {#if user}
 	<form method="post" use:enhance>
 		<input type="text" readonly hidden name="photoURL" value={user.photoURL} required />
