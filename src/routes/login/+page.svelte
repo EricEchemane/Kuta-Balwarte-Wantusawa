@@ -16,6 +16,7 @@
 	</div>
 	<button type="submit">login</button>
 </form>
+<a href="/register">Don't have an account? Create now</a>
 {#if form && !form.valid}
 	<div class="error">{form.message}</div>
 {/if}
