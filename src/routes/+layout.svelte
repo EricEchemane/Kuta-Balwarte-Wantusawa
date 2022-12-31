@@ -32,7 +32,8 @@
 	</button>
 </nav>
 
-<!--<slot />-->
+<slot />
+
 <style>
 	#menu-open-btn {
 		display: none;

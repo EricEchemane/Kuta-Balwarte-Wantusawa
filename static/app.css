@@ -43,7 +43,7 @@ button {
 	display: flex;
 	align-items: center;
 	overflow: hidden;
-	border-radius: 0.5rem;
+	border-radius: 0.7rem;
 	box-shadow: var(--shadow);
 	padding-left: 1rem;
 	transition: 100ms ease;
