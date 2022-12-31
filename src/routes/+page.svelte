@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { PageServerData } from './$types';
-
+	import Button from '@smui/button';
 	export let data: PageServerData;
 </script>
 
@@ -10,5 +10,7 @@
 		<button type="submit">logout</button>
 	</form>
 {:else}
-	<a href="/login">login</a>
+	<a href="/login">
+		<Button>Login</Button>
+	</a>
 {/if}

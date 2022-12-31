@@ -1,4 +1,4 @@
-import { Schema, type InferSchemaType, model } from 'mongoose';
+import mongoose, { Schema, type InferSchemaType, model } from 'mongoose';
 
 export enum UserRole {
 	CUSTOMER = 'CUSTOMER',
@@ -43,4 +43,4 @@ const UserSchema = new Schema(
 );
 
 export type User = InferSchemaType<typeof UserSchema>;
-export const UserModel = model('User', UserSchema);
+export const UserModel = mongoose.models.User || model('User', UserSchema);
