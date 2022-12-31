@@ -36,8 +36,7 @@
 		margin: auto;
 		padding: 1rem;
 		display: flex;
-		justify-content: space-between;
-		/*min-height: 100vh;*/
+		justify-content: space-evenly;
 		gap: 2rem;
 	}
 
@@ -70,12 +69,14 @@
 	/* ===================================== */
 	.right {
 		position: relative;
+		display: grid;
+		place-items: center;
 	}
 	.right img {
-		width: 40vmax;
+		width: 30vmax;
 	}
 	.dish {
-		--size: 10vmax;
+		--size: 8vmax;
 		width: var(--size);
 		height: var(--size);
 		border-radius: 50%;
