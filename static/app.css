@@ -7,6 +7,7 @@
 	--shadow-hover: -24px 32px 48px -8px hsl(0, 0%, 65%), 0 0 24px hsl(0, 0%, 90%);
 	--inter: 'Inter', sans-serif;
 	--berkshire: 'Berkshire Swash', cursive;
+	--surface: #f3f3f3;
 }
 
 * {
@@ -32,6 +33,11 @@ button {
 	cursor: pointer;
 }
 
+.navigation.open {
+	translate: 0 !important;
+	opacity: 1 !important;
+}
+
 .input-field {
 	background-color: white;
 	display: flex;
@@ -40,7 +46,7 @@ button {
 	border-radius: 0.5rem;
 	box-shadow: var(--shadow);
 	padding-left: 1rem;
-	transition: 200ms ease;
+	transition: 100ms ease;
 }
 .input-field:hover {
 	box-shadow: var(--shadow-hover);
@@ -50,7 +56,8 @@ button {
 	padding-left: 0.7rem;
 }
 .input-field:focus-within {
-	box-shadow: -24px 32px 48px -8px hsl(0, 0%, 80%), 0 0 24px hsl(0, 0%, 90%), 0 0 0 1px #555;
+	box-shadow: -24px 32px 48px -8px hsl(0, 0%, 80%), 0 0 24px hsl(0, 0%, 90%),
+		0 0 0 1px var(--primary);
 }
 
 button.icon-btn {
@@ -63,7 +70,7 @@ button.icon-btn {
 	padding: 1rem;
 	border-radius: 50%;
 	box-shadow: var(--shadow);
-	transition: 200ms ease;
+	transition: 100ms ease;
 	position: relative;
 }
 button.icon-btn:hover {
