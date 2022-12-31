@@ -1,13 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Inter:wght@500&display=swap');
 
 :root {
-	--primary: orange;
+	--primary: #eb7a05;
 	--secondary: #142253;
 	--shadow: -24px 32px 48px -8px hsl(0, 0%, 80%), 0 0 24px hsl(0, 0%, 90%);
 	--shadow-hover: -24px 32px 48px -8px hsl(0, 0%, 65%), 0 0 24px hsl(0, 0%, 90%);
 	--inter: 'Inter', sans-serif;
 	--berkshire: 'Berkshire Swash', cursive;
 	--surface: #f3f3f3;
+	--max-width: 1080px;
 }
 
 * {
@@ -24,6 +25,7 @@
 
 body {
 	background-color: var(--surface);
+	overflow-x: hidden;
 }
 
 input {
@@ -97,4 +99,44 @@ button.icon-btn sup.badge {
 	display: grid;
 	place-items: center;
 	line-height: 100%;
+}
+
+.primary {
+	color: var(--primary);
+}
+
+button.secondary {
+	background-color: var(--secondary);
+	color: white;
+	padding: 1.2rem 2rem;
+	border-radius: 0.5rem;
+	font-size: 1rem;
+	transition: 200ms ease;
+	box-shadow: var(--shadow);
+}
+button.secondary:hover {
+	box-shadow: var(--shadow-hover);
+	background-color: #152a77;
+}
+button.secondary:active {
+	box-shadow: var(--shadow);
+	filter: brightness(0.9);
+}
+
+button.outlined {
+	background-color: transparent;
+	color: white;
+	padding: 1.2rem 2rem;
+	border-radius: 0.5rem;
+	font-size: 1rem;
+	transition: 200ms ease;
+	box-shadow: var(--shadow);
+}
+button.outlined:hover {
+	box-shadow: var(--shadow-hover);
+	background-color: #152a77;
+}
+button.outlined:active {
+	box-shadow: var(--shadow);
+	filter: brightness(0.9);
 }

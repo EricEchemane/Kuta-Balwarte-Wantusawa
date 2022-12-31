@@ -40,7 +40,7 @@
 	}
 	nav {
 		--height: 120px;
-		max-width: 1080px;
+		max-width: var(--max-width);
 		margin: auto;
 		display: flex;
 		align-items: center;
@@ -55,7 +55,6 @@
 	.brand img {
 		width: 3rem;
 	}
-
 	.inputs {
 		display: flex;
 		align-content: center;
@@ -79,7 +78,7 @@
 			padding: 2rem;
 			box-shadow: var(--shadow);
 			background-color: var(--surface);
-			position: fixed;
+			position: absolute;
 			z-index: 10;
 			top: var(--height);
 			left: 0;
