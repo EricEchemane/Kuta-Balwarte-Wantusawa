@@ -1,35 +1,51 @@
 <script lang="ts">
 	//import type { LayoutServerData } from './$types';
 	//export let data: LayoutServerData;
-	//export let href;
-	//$: console.log({ href });
 </script>
 
-<!--<nav>
-	<section class="right-section">
+<nav>
+	<section class="brand">
 		<img src="/favicon.png" alt="kuta balwarte logo" />
-		<div>
-			<p>Kuta Balwarte</p>
-			<div class="wantusawa">wantusawa</div>
+		<h2>Kuta Balwarte</h2>
+	</section>
+	<section class="navigation">
+		<a href="/"> <h4>Home</h4> </a>
+		<a href="/menu"> <h4>Menu</h4> </a>
+		<a href="/order"> <h4>Orders</h4> </a>
+		<div class="input-field">
+			<span class="material-symbols-outlined"> search </span>
+			<input type="search" placeholder="Search your favorite dish" />
 		</div>
+		<button class="icon-btn">
+			<span class="material-symbols-outlined"> shopping_basket </span>
+			<sup class="badge">7</sup>
+		</button>
 	</section>
-	<section class="search-input">
-		<i class="bx bx-search" />
-		<input type="search" placeholder="Search for your favorite dish" />
-	</section>
+</nav>
 
-	{#if data && data.user}
-		<ul>
-			<li><a href="/">Home</a></li>
-			<li><a href="/orders">Orders</a></li>
-			<li><a href="/me">My account</a></li>
-			<li><a href="/cart"><i class="bx bx-cart" /></a></li>
-		</ul>
-	{:else}
-		<ul>
-			<li><a href="/login">Login</a></li>
-		</ul>
-	{/if}
-</nav>-->
+<!--<slot />-->
+<style>
+	nav {
+		max-width: 1080px;
+		margin: auto;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 2rem 1rem;
+	}
+	.brand {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+	.brand img {
+		width: 3rem;
+	}
 
-<slot />
+	/* ================================ */
+	.navigation {
+		display: flex;
+		align-items: center;
+		gap: 2rem;
+	}
+</style>

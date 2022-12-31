@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Inter:wght@500&display=swap');
 
 :root {
-	--primary: #c58940;
-	--secondary: #e5ba73;
-	--tertiary: #faeab1;
-	--surface: #faf8f1;
+	--primary: orange;
+	--secondary: #142253;
+	--shadow: -24px 32px 48px -8px hsl(0, 0%, 80%), 0 0 24px hsl(0, 0%, 90%);
+	--shadow-hover: -24px 32px 48px -8px hsl(0, 0%, 65%), 0 0 24px hsl(0, 0%, 90%);
 	--inter: 'Inter', sans-serif;
 	--berkshire: 'Berkshire Swash', cursive;
 }
@@ -15,11 +15,79 @@
 	padding: 0;
 	box-sizing: border-box;
 	font-family: 'Inter', sans-serif;
-	color: #111;
+	color: #2e2e2e;
 	-webkit-tap-highlight-color: transparent;
+	outline: none;
+	border: none;
+}
+
+body {
+	background-color: var(--surface);
 }
 
 input {
-	outline: none;
-	border: none;
+	background-color: transparent;
+}
+button {
+	cursor: pointer;
+}
+
+.input-field {
+	background-color: white;
+	display: flex;
+	align-items: center;
+	overflow: hidden;
+	border-radius: 0.5rem;
+	box-shadow: var(--shadow);
+	padding-left: 1rem;
+	transition: 200ms ease;
+}
+.input-field:hover {
+	box-shadow: var(--shadow-hover);
+}
+.input-field input {
+	padding: 1rem;
+	padding-left: 0.7rem;
+}
+.input-field:focus-within {
+	box-shadow: -24px 32px 48px -8px hsl(0, 0%, 80%), 0 0 24px hsl(0, 0%, 90%), 0 0 0 1px #555;
+}
+
+button.icon-btn {
+	background-color: white;
+	--size: 4rem;
+	width: var(--size);
+	height: var(--size);
+	display: grid;
+	place-items: center;
+	padding: 1rem;
+	border-radius: 50%;
+	box-shadow: var(--shadow);
+	transition: 200ms ease;
+	position: relative;
+}
+button.icon-btn:hover {
+	box-shadow: var(--shadow-hover);
+}
+button.icon-btn:active {
+	box-shadow: var(--shadow);
+	filter: brightness(0.95);
+}
+button.icon-btn sup.badge {
+	--size: 1.5rem;
+	width: var(--size);
+	height: var(--size);
+	position: absolute;
+	top: 0;
+	right: 0;
+	translate: 25% -25%;
+	border-radius: 50%;
+	background-color: red;
+	color: white;
+	padding: 0.4rem;
+	font-weight: bolder;
+	font-size: calc(var(--size) / 2);
+	display: grid;
+	place-items: center;
+	line-height: 100%;
 }
