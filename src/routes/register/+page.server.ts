@@ -4,7 +4,7 @@ import { RegisterUserDto } from '$lib/server/dto';
 import { fail, redirect, type Actions } from '@sveltejs/kit';
 import bcrypt from 'bcryptjs';
 import type { MongooseError } from 'mongoose';
-import type { PageServerLoad } from '../$types';
+import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async ({ locals }) => {
 	if (locals.user) {

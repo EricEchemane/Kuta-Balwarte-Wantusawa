@@ -3,7 +3,7 @@ import { LoginUserDto } from '$lib/server/dto';
 import { db } from '$lib/database';
 import bcrypt from 'bcryptjs';
 import crypto from 'crypto';
-import type { PageServerLoad } from '../$types';
+import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async ({ locals }) => {
 	if (locals.user) {

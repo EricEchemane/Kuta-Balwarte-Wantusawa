@@ -1,4 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Inter&display=swap');
+
+:root {
+	--primary: #c58940;
+	--secondary: #e5ba73;
+	--tertiary: #faeab1;
+	--surface: #faf8f1;
+	--inter: 'Inter', sans-serif;
+	--berkshire: 'Berkshire Swash', cursive;
+}
 
 * {
 	text-decoration: none;
@@ -6,4 +15,15 @@
 	padding: 0;
 	box-sizing: border-box;
 	font-family: 'Inter', sans-serif;
+	color: #111;
+	-webkit-tap-highlight-color: transparent;
+}
+
+input {
+	outline: none;
+	border: none;
+}
+
+i {
+	font-size: 1.2rem !important;
 }
