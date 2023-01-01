@@ -6,7 +6,8 @@
 <main>
 	<section class="left">
 		<h1>
-			Fast <span class="primary">Delivery</span> <br /> & Easy
+			Fast <img src="/images/arrow.png" alt="arrow" width="120" /> <br />
+			<span class="primary">Delivery</span> & <br /> Easy
 			<span class="primary">Pickup</span>.
 		</h1>
 		<p>
@@ -42,7 +43,7 @@
 
 	.left {
 		display: flex;
-		padding-top: 3rem;
+		/*padding-top: 3rem;*/
 		align-items: flex-start;
 		flex-direction: column;
 		gap: 2rem;
@@ -73,7 +74,7 @@
 		place-items: center;
 	}
 	.right img {
-		width: max(30vmax, 400px);
+		width: max(30vmax, 450px);
 	}
 	.dish {
 		--size: 8vmax;
@@ -81,7 +82,7 @@
 		height: var(--size);
 		border-radius: 50%;
 		padding: 1rem;
-		box-shadow: var(--shadow);
+		box-shadow: var(--shadow-hover);
 		position: absolute;
 		display: grid;
 		place-items: center;
@@ -109,7 +110,7 @@
 		bottom: 0;
 		left: 0;
 		translate: -70% -50%;
-		scale: 1.3;
+		scale: 1.5;
 	}
 
 	/* ===================================== */
