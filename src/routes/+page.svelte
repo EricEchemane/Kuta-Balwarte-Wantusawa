@@ -49,7 +49,7 @@
 		gap: 2rem;
 	}
 	.left h1 {
-		font-size: 4rem;
+		font-size: min(4rem, 12vw);
 	}
 	.chef {
 		display: flex;
