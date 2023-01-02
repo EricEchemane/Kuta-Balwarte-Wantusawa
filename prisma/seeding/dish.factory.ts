@@ -12,7 +12,9 @@ export class DishFactory {
 					data: {
 						name: faker.commerce.productName(),
 						photoUrl: faker.image.food(),
-						price: +faker.commerce.price()
+						price: +faker.commerce.price(),
+						likes: +faker.datatype.number(100),
+						ordered: +faker.datatype.number(100)
 					}
 				});
 			})

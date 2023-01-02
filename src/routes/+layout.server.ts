@@ -1,7 +1,7 @@
-import type { Dish } from '@prisma/client';
+import { db } from '$lib/server/database';
 import type { LayoutServerLoad } from './$types';
 
 export const load = (async () => {
-	const dishes: Dish[] = [];
+	const dishes = await db.dish.findMany();
 	return { dishes };
 }) satisfies LayoutServerLoad;

@@ -1,3 +1,11 @@
+<script lang="ts">
+	import type { LayoutServerData } from './$types';
+
+	export let data: LayoutServerData;
+
+	$: console.log(data.dishes);
+</script>
+
 <svelte:head>
 	<title>Kuta Balwarte Wantusawa</title>
 	<meta name="description" content="Filipino Restaurant" />
@@ -11,7 +19,8 @@
 			<span class="primary">Pickup</span>.
 		</h1>
 		<p>
-			Kuta Balwarte Wantusawa Restaurant. <br /> Masarap na pagkain na totoong hahanap-hanapin mo!
+			Kuta Balwarte Wantusawa Restaurant. <br /> Masarap na pagkain na totoong
+			hahanap-hanapin mo!
 		</p>
 		<button class="secondary"> Order Now </button>
 		<div class="chef">
@@ -19,7 +28,9 @@
 				src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Chef_icon.svg/1500px-Chef_icon.svg.png"
 				alt="chef"
 			/>
-			<p>When you are too busy to cook, <br /> we are just one click away.</p>
+			<p>
+				When you are too busy to cook, <br /> we are just one click away.
+			</p>
 		</div>
 	</section>
 	<section class="right">
