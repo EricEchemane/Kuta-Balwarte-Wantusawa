@@ -1,0 +1,69 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  CUSTOMER
+  ADMIN
+}
+
+model Customer {
+  id          String     @id @default(cuid())
+  role        UserRole   @default(CUSTOMER)
+  email       String     @unique
+  hash        String
+  displayName String
+  photoUrl    String
+  Orders      Order[]
+  cart        CartItem[]
+  address     String
+  phone       String
+  sessionId   String?
+
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt DateTime @updatedAt @db.Timestamptz(3)
+}
+
+model Dish {
+  id       String     @id @default(cuid())
+  name     String
+  price    Float
+  photoUrl String
+  Cart     CartItem[]
+
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt DateTime @updatedAt @db.Timestamptz(3)
+}
+
+model CartItem {
+  id       String @id @default(cuid())
+  quantity Int
+
+  dish   Dish   @relation(fields: [dishId], references: [id])
+  dishId String
+
+  Order   Order?  @relation(fields: [orderId], references: [id])
+  orderId String?
+
+  Customer   Customer? @relation(fields: [customerId], references: [id])
+  customerId String?
+
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt DateTime @updatedAt @db.Timestamptz(3)
+}
+
+model Order {
+  id          String     @id @default(cuid())
+  dishes      CartItem[]
+  shippingFee Float
+  customer    Customer   @relation(fields: [customerId], references: [id])
+  customerId  String
+
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+  updatedAt DateTime @updatedAt @db.Timestamptz(3)
+}

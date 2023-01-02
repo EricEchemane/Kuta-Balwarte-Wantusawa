@@ -1,3 +1,4 @@
+import { db } from '$lib/server/database';
 import type { Handle } from '@sveltejs/kit';
 
 export const handle: Handle = async ({ event, resolve }) => {
@@ -10,11 +11,13 @@ export const handle: Handle = async ({ event, resolve }) => {
 	}
 
 	// find the user based on the session
-	//const user = await db.user.findOne({ authToken: session });
-	//const _user = JSON.parse(JSON.stringify(user));
-	//delete _user.hash;
+	const user = await db.customer.findFirst({
+		where: { sessionId: session }
+	});
+	const _user = JSON.parse(JSON.stringify(user));
+	delete _user.hash;
 
-	//event.locals.user = _user;
+	event.locals.user = _user;
 
 	// load page as normal
 	return await resolve(event);

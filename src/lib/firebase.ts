@@ -31,7 +31,10 @@ export async function logoutFirebaseApp(app: FirebaseApp) {
 	signOut(auth);
 }
 
-export function onUserAuthStateChanged(app: FirebaseApp, callback: (auth: User | null) => void) {
+export function onUserAuthStateChanged(
+	app: FirebaseApp,
+	callback: (auth: User | null) => void
+) {
 	const auth = getAuth(app);
 	onAuthStateChanged(auth, callback);
 }
