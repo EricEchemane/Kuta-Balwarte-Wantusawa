@@ -57,6 +57,7 @@
 		display: flex;
 		align-items: center;
 		gap: 1rem;
+		padding-left: 1rem;
 	}
 	.dishes {
 		display: grid;
@@ -121,6 +122,7 @@
 		header {
 			flex-direction: column;
 			align-items: flex-start;
+			padding-left: 0;
 		}
 		header * {
 			width: 100%;
