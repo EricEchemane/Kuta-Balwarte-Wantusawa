@@ -16,16 +16,10 @@
 		<a href="/"> <h4>Home</h4> </a>
 		<a href="/menu"> <h4>Menu</h4> </a>
 		<a href="/order"> <h4>Orders</h4> </a>
-		<div class="inputs">
-			<div class="input-field">
-				<span class="material-symbols-outlined"> search </span>
-				<input type="search" placeholder="Search your favorite dish" />
-			</div>
-			<button class="icon-btn">
-				<span class="material-symbols-outlined"> shopping_basket </span>
-				<sup class="badge">7</sup>
-			</button>
-		</div>
+		<button class="icon-btn">
+			<span class="material-symbols-outlined"> shopping_basket </span>
+			<sup class="badge">7</sup>
+		</button>
 	</section>
 	<button class="icon-btn" id="menu-open-btn" on:click={toggleNavOnMobile}>
 		<span class="material-symbols-outlined"> menu_open </span>
@@ -55,12 +49,6 @@
 	.brand img {
 		width: 3rem;
 	}
-	.inputs {
-		display: flex;
-		align-content: center;
-		gap: 2rem;
-	}
-
 	/* ================================ */
 	.navigation {
 		display: flex;
@@ -74,7 +62,6 @@
 		}
 		.navigation {
 			display: flex;
-			flex-direction: column;
 			padding: 2rem;
 			box-shadow: var(--shadow);
 			background-color: var(--surface);
@@ -83,20 +70,12 @@
 			top: var(--height);
 			left: 0;
 			right: 0;
-			align-items: flex-start;
-			justify-content: stretch;
 			transition: 200ms ease;
 			translate: 100% 0;
 			opacity: 0;
 		}
-		.inputs {
-			justify-content: stretch;
-			width: 100%;
-			margin-bottom: 1rem;
-		}
-		.input-field,
-		.input-field input {
-			width: 100%;
+		.icon-btn {
+			margin-left: auto;
 		}
 	}
 </style>

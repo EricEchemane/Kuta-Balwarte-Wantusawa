@@ -1,6 +1,6 @@
 import { fail, redirect, type Actions } from '@sveltejs/kit';
 import { LoginUserDto } from '$lib/server/dto';
-import { db } from '$lib/database';
+import { db } from '$lib/server/database';
 import bcrypt from 'bcryptjs';
 import crypto from 'crypto';
 import type { PageServerLoad } from './$types';
@@ -18,12 +18,15 @@ export const actions: Actions = {
 		const validation = LoginUserDto.safeParse(formData);
 
 		if (!validation.success) {
-			return fail(401, { message: validation.error.errors[0].message, valid: false });
+			return fail(401, {
+				message: validation.error.errors[0].message,
+				valid: false
+			});
 		}
 
 		const { email, password } = validation.data;
 
-		const userExist = await db.user.findOne({ email });
+		const userExist = await db.customer.findUnique({ where: { email } });
 		if (!userExist) {
 			return fail(401, { message: 'Credentials incorrect', valid: false });
 		}
@@ -34,7 +37,10 @@ export const actions: Actions = {
 		}
 
 		const authToken = crypto.randomUUID();
-		await db.user.updateOne({ email }, { $set: { authToken } });
+		await db.customer.update({
+			where: { email },
+			data: { sessionId: authToken }
+		});
 
 		cookies.set('session', authToken, {
 			path: '/',

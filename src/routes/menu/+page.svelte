@@ -60,7 +60,7 @@
 	}
 	.dishes {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(410px, 1fr));
 		justify-content: center;
 		gap: 2rem;
 	}
