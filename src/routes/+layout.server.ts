@@ -1,7 +1,7 @@
-import type { User } from '$lib/database/schemas';
+import type { Dish } from '@prisma/client';
 import type { LayoutServerLoad } from './$types';
 
-export const load = (async ({ locals }) => {
-	const user: User = locals.user;
-	return { user };
+export const load = (async () => {
+	const dishes: Dish[] = [];
+	return { dishes };
 }) satisfies LayoutServerLoad;

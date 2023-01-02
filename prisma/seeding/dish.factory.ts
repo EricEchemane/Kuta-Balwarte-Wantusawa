@@ -11,7 +11,7 @@ export class DishFactory {
 				return await this.prisma.dish.create({
 					data: {
 						name: faker.commerce.productName(),
-						photoUrl: faker.image.imageUrl(),
+						photoUrl: faker.image.food(),
 						price: +faker.commerce.price()
 					}
 				});
