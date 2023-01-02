@@ -4,11 +4,15 @@
 	export let data: PageData;
 </script>
 
+<svelte:head>
+	<title>Menu - Kuta Balwarte Wantusawa</title>
+</svelte:head>
+
 <section>
 	<header>
-		<h1>Our dishes😊</h1>
+		<h1>Enjoy our menu😊</h1>
 		<div class="input-field">
-			<input type="search" placeholder="Search food" />
+			<input type="search" placeholder="Search dishes" />
 		</div>
 	</header>
 
@@ -50,7 +54,6 @@
 	header {
 		max-width: var(--max-width);
 		margin: 0 auto 2rem;
-		padding-left: 1rem;
 		display: flex;
 		align-items: center;
 		gap: 1rem;
@@ -70,6 +73,7 @@
 		padding: 2rem;
 		gap: 2rem;
 	}
+
 	.plate {
 		--size: 12rem;
 		width: var(--size);
@@ -104,5 +108,22 @@
 		display: flex;
 		gap: 1rem;
 		margin-top: 1rem;
+	}
+
+	@media (max-width: 550px) {
+		.dish {
+			grid-template-columns: 1fr;
+		}
+		.plate {
+			--size: 300px !important;
+			margin: auto;
+		}
+		header {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+		header * {
+			width: 100%;
+		}
 	}
 </style>
