@@ -17,7 +17,7 @@ export class CustomerFactory {
 						email: faker.internet.email(),
 						hash: password,
 						phone: faker.phone.number(),
-						photoUrl: faker.image.imageUrl()
+						photoURL: faker.image.imageUrl()
 					}
 				});
 				return customer;

@@ -1,6 +1,9 @@
 <script lang="ts">
-	//import type { LayoutServerData } from './$types';
-	//export let data: LayoutServerData;
+	import type { Customer } from '@prisma/client';
+	import type { LayoutServerData } from './$types';
+	export let data: LayoutServerData;
+
+	$: user = data.user as Customer;
 
 	const toggleNavOnMobile = () => {
 		document.getElementById('nav')?.classList.toggle('open');
@@ -16,10 +19,14 @@
 		<a href="/"> <h4>Home</h4> </a>
 		<a href="/menu"> <h4>Menu</h4> </a>
 		<a href="/order"> <h4>Orders</h4> </a>
-		<button class="icon-btn">
-			<span class="material-symbols-outlined"> shopping_basket </span>
-			<sup class="badge">7</sup>
-		</button>
+		{#if user}
+			<button class="icon-btn">
+				<span class="material-symbols-outlined"> shopping_basket </span>
+				<sup class="badge">7</sup>
+			</button>
+		{:else}
+			<a href="/register"><button class="outlined"> Sign up </button></a>
+		{/if}
 	</section>
 	<button class="icon-btn" id="menu-open-btn" on:click={toggleNavOnMobile}>
 		<span class="material-symbols-outlined"> menu_open </span>

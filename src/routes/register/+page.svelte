@@ -39,12 +39,13 @@
 			value={user.photoURL}
 			required
 		/>
+
 		<div>
 			<img src={user.photoURL} alt={user.displayName} width="50" />
 		</div>
-		<div>
+
+		<div class="input-field">
 			<input
-				readonly
 				required
 				value={user.email}
 				type="text"
@@ -52,10 +53,11 @@
 				placeholder="Your email"
 			/>
 		</div>
-		<div>
+
+		<div class="input-field">
 			<input
-				readonly
 				required
+				readonly
 				value={user.displayName}
 				type="text"
 				name="displayName"
@@ -63,7 +65,28 @@
 				minlength="3"
 			/>
 		</div>
-		<div>
+
+		<div class="input-field">
+			<input
+				required
+				type="text"
+				name="address"
+				placeholder="Complete address"
+				minlength="3"
+			/>
+		</div>
+
+		<div class="input-field">
+			<input
+				required
+				type="text"
+				name="phone"
+				placeholder="Phone number"
+				minlength="3"
+			/>
+		</div>
+
+		<div class="input-field">
 			<input
 				required
 				bind:value={password}
@@ -73,7 +96,8 @@
 				minlength="7"
 			/>
 		</div>
-		<div>
+
+		<div class="input-field">
 			<input
 				required
 				bind:value={confimPassword}
@@ -82,13 +106,20 @@
 				minlength="7"
 			/>
 		</div>
-		<button
-			type="submit"
-			disabled={password !== confimPassword || password === ''}
-			>Submit</button
+
+		<div class="actions">
+			<button
+				type="submit"
+				class="secondary"
+				disabled={password !== confimPassword || password === ''}
+				>Submit</button
+			>
+			<button class="outlined" on:click={logout}>Cancel</button>
+		</div>
+
+		<a href="/login" class="login"
+			>Already have an account? Login instead</a
 		>
-		<button on:click={logout}>cancel</button>
-		<a href="/login">Login instead</a>
 	</form>
 	{#if form && !form.valid}
 		<div class="error">{form.message}</div>
@@ -98,3 +129,52 @@
 		Continue with Google
 	</button>
 {/if}
+
+<style>
+	a.login {
+		font-size: 0.9rem;
+	}
+	form {
+		max-width: 500px;
+		border-radius: 1rem;
+		padding: 2rem;
+		margin: auto;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1.5rem;
+	}
+	.actions {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 1rem;
+		margin: 1rem 0;
+		width: 100% !important;
+	}
+
+	.input-field input {
+		padding-left: 0;
+	}
+	.input-field {
+		box-shadow: none;
+		width: 100%;
+	}
+	.input-field:focus-within,
+	button:focus-visible {
+		box-shadow: 0 0 0 1px #999;
+	}
+	button {
+		padding: 0.7rem 1rem;
+	}
+	button:disabled {
+		opacity: 0.5;
+		pointer-events: none;
+	}
+	img {
+		width: 5rem;
+		height: 5rem;
+		object-fit: cover;
+		border-radius: 50%;
+	}
+</style>

@@ -1,10 +1,12 @@
 import { z } from 'zod';
 
 export const RegisterUserDto = z.object({
-	displayName: z.string().min(3),
 	email: z.string().email(),
+	hash: z.string(),
+	displayName: z.string().min(3),
 	photoURL: z.string().url(),
-	hash: z.string()
+	address: z.string().min(5),
+	phone: z.string().min(11)
 });
 
 export const LoginUserDto = z.object({
