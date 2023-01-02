@@ -31,7 +31,14 @@
 
 {#if user}
 	<form method="post" use:enhance>
-		<input type="text" readonly hidden name="photoURL" value={user.photoURL} required />
+		<input
+			type="text"
+			readonly
+			hidden
+			name="photoURL"
+			value={user.photoURL}
+			required
+		/>
 		<div>
 			<img src={user.photoURL} alt={user.displayName} width="50" />
 		</div>
@@ -75,7 +82,11 @@
 				minlength="7"
 			/>
 		</div>
-		<button type="submit" disabled={password !== confimPassword || password === ''}>Submit</button>
+		<button
+			type="submit"
+			disabled={password !== confimPassword || password === ''}
+			>Submit</button
+		>
 		<button on:click={logout}>cancel</button>
 		<a href="/login">Login instead</a>
 	</form>
@@ -83,5 +94,7 @@
 		<div class="error">{form.message}</div>
 	{/if}
 {:else}
-	<button on:click={() => loginWithGoogle(app)}> Continue with Google </button>
+	<button on:click={() => loginWithGoogle(app)}>
+		Continue with Google
+	</button>
 {/if}

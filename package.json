@@ -1,6 +1,7 @@
 {
 	"name": "food-master",
 	"version": "0.0.1",
+	"type": "module",
 	"prisma": {
 		"seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seeding/seed.ts"
 	},

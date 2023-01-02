@@ -1,9 +1,8 @@
 <script lang="ts">
 	import type { LayoutServerData } from './$types';
+	import TopDishes from './TopDishes.svelte';
 
 	export let data: LayoutServerData;
-
-	$: console.log(data.dishes);
 </script>
 
 <svelte:head>
@@ -41,6 +40,8 @@
 		<div class="dish" />
 	</section>
 </main>
+
+<TopDishes dishes={data.dishes} />
 
 <style>
 	main {

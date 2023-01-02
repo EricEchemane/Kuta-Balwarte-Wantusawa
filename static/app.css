@@ -4,7 +4,8 @@
 	--primary: #eb7a05;
 	--secondary: #142253;
 	--shadow: -24px 32px 48px -8px hsl(0, 0%, 80%), 0 0 24px hsl(0, 0%, 90%);
-	--shadow-hover: -24px 32px 48px -8px hsl(0, 0%, 65%), 0 0 24px hsl(0, 0%, 90%);
+	--shadow-hover: -24px 32px 48px -8px hsl(0, 0%, 65%),
+		0 0 24px hsl(0, 0%, 90%);
 	--inter: 'Inter', sans-serif;
 	--berkshire: 'Berkshire Swash', cursive;
 	--surface: #f3f3f3;
@@ -58,8 +59,8 @@ button {
 	padding-left: 0.7rem;
 }
 .input-field:focus-within {
-	box-shadow: -24px 32px 48px -8px hsl(0, 0%, 80%), 0 0 24px hsl(0, 0%, 90%),
-		0 0 0 1px var(--primary);
+	box-shadow: -24px 32px 48px -8px hsl(0, 0%, 80%),
+		0 0 24px hsl(0, 0%, 90%), 0 0 0 1px var(--primary);
 }
 
 button.icon-btn {
@@ -125,7 +126,7 @@ button.secondary:active {
 
 button.outlined {
 	background-color: transparent;
-	color: white;
+	/*color: white;*/
 	padding: 1.2rem 2rem;
 	border-radius: 0.5rem;
 	font-size: 1rem;
@@ -134,7 +135,6 @@ button.outlined {
 }
 button.outlined:hover {
 	box-shadow: var(--shadow-hover);
-	background-color: #152a77;
 }
 button.outlined:active {
 	box-shadow: var(--shadow);
