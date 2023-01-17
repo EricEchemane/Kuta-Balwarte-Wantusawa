@@ -1,8 +1,28 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
 	import type { ActionData } from './$types';
+	import {
+		initFirebase,
+		loginWithGoogle,
+		onUserAuthStateChanged
+	} from '$lib/firebase';
+	import { onMount } from 'svelte';
+
+	let app = initFirebase();
 
 	export let form: ActionData;
+
+	onMount(() => {
+		onUserAuthStateChanged(app, (user) => {
+			if (!user?.email) return;
+			const formdata = new FormData();
+			formdata.append('email', user.email);
+			fetch('/api/google-login', {
+				method: 'post',
+				body: formdata
+			}).then(() => window.location.reload());
+		});
+	});
 </script>
 
 <svelte:head>
@@ -10,13 +30,45 @@
 </svelte:head>
 
 <form method="post" use:enhance>
-	<div>
+	<button class="outlined" on:click={() => loginWithGoogle(app)}>
+		Log in with Google
+	</button>
+	<p>or</p>
+	<div class="input-field">
 		<input type="text" name="email" placeholder="Your email" required />
-		<input type="password" name="password" placeholder="Your password" minlength="7" required />
 	</div>
-	<button type="submit">login</button>
+	<div class="input-field">
+		<input
+			type="password"
+			name="password"
+			placeholder="Your password"
+			minlength="7"
+			required
+		/>
+	</div>
+	<button class="secondary" type="submit">login</button>
+	<a href="/register">Don't have an account? Create now</a>
 </form>
-<a href="/register">Don't have an account? Create now</a>
 {#if form && !form.valid}
 	<div class="error">{form.message}</div>
 {/if}
+
+<style>
+	form {
+		max-width: 500px;
+		margin: auto;
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+	.input-field {
+		padding-left: 0;
+	}
+	a,
+	p {
+		text-align: center;
+	}
+	.outlined {
+		border: 1px solid #777;
+	}
+</style>

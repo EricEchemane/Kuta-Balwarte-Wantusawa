@@ -25,7 +25,7 @@
 				<sup class="badge">7</sup>
 			</button>
 		{:else}
-			<a href="/register"><button class="outlined"> Sign up </button></a>
+			<a href="/login"><button class="outlined"> Log in </button></a>
 		{/if}
 	</section>
 	<button class="icon-btn" id="menu-open-btn" on:click={toggleNavOnMobile}>
