@@ -7,20 +7,23 @@
 		onUserAuthStateChanged
 	} from '$lib/firebase';
 	import { onMount } from 'svelte';
+	import { goto } from '$app/navigation';
 
 	let app = initFirebase();
 
 	export let form: ActionData;
 
 	onMount(() => {
-		onUserAuthStateChanged(app, (user) => {
+		onUserAuthStateChanged(app, async (user) => {
 			if (!user?.email) return;
 			const formdata = new FormData();
 			formdata.append('email', user.email);
-			fetch('/api/google-login', {
+			const res = await fetch('/api/google-login', {
 				method: 'post',
 				body: formdata
-			}).then(() => window.location.reload());
+			});
+			if (res.status === 404) goto('/register');
+			else window.location.reload();
 		});
 	});
 </script>

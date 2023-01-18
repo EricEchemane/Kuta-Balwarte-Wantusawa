@@ -1,4 +1,4 @@
-import { fail, redirect, type Actions } from '@sveltejs/kit';
+import { error, fail, type Actions } from '@sveltejs/kit';
 import { db } from '$lib/server/database';
 import crypto from 'crypto';
 
@@ -16,8 +16,9 @@ export const actions: Actions = {
 		const userExist = await db.customer.findUnique({
 			where: { email }
 		});
+
 		if (!userExist) {
-			return fail(401, { message: 'Credentials incorrect', valid: false });
+			throw error(404, 'email not yet registered');
 		}
 
 		const authToken = crypto.randomUUID();
@@ -32,7 +33,5 @@ export const actions: Actions = {
 			sameSite: 'strict',
 			maxAge: 60 * 60 * 24
 		});
-
-		throw redirect(303, '/menu');
 	}
 };
