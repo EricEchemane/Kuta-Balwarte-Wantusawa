@@ -125,12 +125,20 @@
 		<div class="error">{form.message}</div>
 	{/if}
 {:else}
-	<button on:click={() => loginWithGoogle(app)}>
-		Continue with Google
-	</button>
+	<div class="no-session">
+		<button class="secondary" on:click={() => loginWithGoogle(app)}>
+			Continue with Google
+		</button>
+		<p>Why? we use google provider to authenticate real users</p>
+	</div>
 {/if}
 
 <style>
+	.no-session {
+		display: grid;
+		place-items: center;
+		gap: 1rem;
+	}
 	a.login {
 		font-size: 0.9rem;
 	}
