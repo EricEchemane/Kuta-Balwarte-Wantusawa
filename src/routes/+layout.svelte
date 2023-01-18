@@ -3,7 +3,8 @@
 	import type { LayoutServerData } from './$types';
 	export let data: LayoutServerData;
 
-	$: user = data.user as Customer;
+	const user = data.user as Customer;
+	console.log(user);
 
 	const toggleNavOnMobile = () => {
 		document.getElementById('nav')?.classList.toggle('open');

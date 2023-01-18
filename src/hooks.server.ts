@@ -12,7 +12,11 @@ export const handle: Handle = async ({ event, resolve }) => {
 
 	// find the user based on the session
 	const user = await db.customer.findFirst({
-		where: { sessionId: session }
+		where: { sessionId: session },
+		include: {
+			cart: true,
+			Orders: true
+		}
 	});
 	const _user = JSON.parse(JSON.stringify(user));
 	delete _user.hash;
