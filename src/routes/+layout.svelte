@@ -1,10 +1,9 @@
 <script lang="ts">
-	import type { Customer } from '@prisma/client';
+	import type { AppUser } from '$lib/interfaces/AppUser';
 	import type { LayoutServerData } from './$types';
 	export let data: LayoutServerData;
 
-	const user = data.user as Customer;
-	console.log(user);
+	const user = data.user as AppUser;
 
 	const toggleNavOnMobile = () => {
 		document.getElementById('nav')?.classList.toggle('open');
@@ -23,7 +22,9 @@
 		{#if user}
 			<button class="icon-btn">
 				<span class="material-symbols-outlined"> shopping_basket </span>
-				<sup class="badge">7</sup>
+				{#if user.cart.length > 0}
+					<sup class="badge"> {user.cart.length} </sup>
+				{/if}
 			</button>
 		{:else}
 			<a href="/login"><button class="outlined"> Log in </button></a>
