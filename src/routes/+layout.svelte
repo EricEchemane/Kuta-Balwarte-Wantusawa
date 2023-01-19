@@ -18,7 +18,7 @@
 	<section class="navigation" id="nav">
 		<a href="/"> <h4>Home</h4> </a>
 		<a href="/menu"> <h4>Menu</h4> </a>
-		<a href="/order"> <h4>Orders</h4> </a>
+		<a href="/orders"> <h4>Orders</h4> </a>
 		{#if user}
 			<button class="icon-btn">
 				<span class="material-symbols-outlined"> shopping_basket </span>
