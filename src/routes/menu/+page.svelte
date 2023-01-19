@@ -32,7 +32,9 @@
 					</div>
 					<div class="actions">
 						<h4>₱ {dish.price}</h4>
-						<button class="outlined"> Add to cart </button>
+						<a href={`/add-to-cart/${dish.id}`}>
+							<button class="outlined"> Add to cart </button></a
+						>
 						<button class="outlined"> Order now </button>
 					</div>
 				</div>

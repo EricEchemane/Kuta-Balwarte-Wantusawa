@@ -6,6 +6,10 @@
 	const orders: Order[] = data.user.Orders;
 </script>
 
+<svelte:head>
+	<title>Your orders</title>
+</svelte:head>
+
 {#if orders.length === 0}
 	<div class="empty">
 		<h1>You have no orders yet</h1>
