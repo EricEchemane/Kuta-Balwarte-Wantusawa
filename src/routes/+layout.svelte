@@ -3,7 +3,7 @@
 	import type { LayoutServerData } from './$types';
 	export let data: LayoutServerData;
 
-	const user = data.user as AppUser;
+	$: user = data.user as AppUser;
 
 	const toggleNavOnMobile = () => {
 		document.getElementById('nav')?.classList.toggle('open');
@@ -13,7 +13,10 @@
 <nav>
 	<section class="brand">
 		<img src="/favicon.png" alt="kuta balwarte logo" />
-		<h2>Kuta Balwarte</h2>
+		<div>
+			<h2>Kuta Balwarte</h2>
+			<p>Hello, {user.displayName}!</p>
+		</div>
 	</section>
 	<section class="navigation" id="nav">
 		<a href="/"> <h4>Home</h4> </a>

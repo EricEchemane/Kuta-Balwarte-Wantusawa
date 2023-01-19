@@ -1,7 +1,10 @@
 <script lang="ts">
-	import type { PageData } from './$types';
+	import { enhance } from '$app/forms';
+	import { goto } from '$app/navigation';
+	import type { ActionData, PageData } from './$types';
 
 	export let data: PageData;
+	export let form: ActionData;
 
 	let quantity = 1;
 
@@ -9,6 +12,10 @@
 	const dish = data.dish;
 
 	$: total = quantity * dish.price;
+	$: if (form?.valid) {
+		alert('Added to cart successfully!');
+		goto('/menu');
+	}
 </script>
 
 <svelte:head>
@@ -19,23 +26,26 @@
 	<div class="dish">
 		<img class="image" src={dish.photoUrl} alt={dish.name} />
 	</div>
-	<div class="input">
+	<form use:enhance method="post">
+		<input type="text" hidden name="dishId" value={dish.id} />
+		<input type="text" hidden name="customerId" value={user.id} />
 		<h1>{dish.name}</h1>
 		<h2 class="price">Price: ₱ {dish.price}</h2>
 		<div class="input-field">
 			<label for="quantity">Quantity:</label>
 			<input
 				id="quantity"
+				name="quantity"
 				type="number"
-				min="1"
+				min={1}
 				bind:value={quantity}
 				placeholder="Quantity"
 			/>
 		</div>
 		<h3>Total: ₱ {total}</h3>
-		<button class="secondary"> Add to cart </button>
+		<button class="secondary" type="submit"> Add to cart </button>
 		<button class="outlined"> Order now </button>
-	</div>
+	</form>
 </main>
 
 <style>
@@ -48,7 +58,7 @@
 		justify-content: center;
 	}
 
-	.input {
+	form {
 		display: flex;
 		flex-direction: column;
 		gap: 2rem;
