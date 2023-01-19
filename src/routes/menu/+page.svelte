@@ -30,12 +30,18 @@
 							<div>{dish.likes} likes</div>
 						</div>
 					</div>
-					<div class="actions">
-						<h4>₱ {dish.price}</h4>
-						<a href={`/add-to-cart/${dish.id}`}>
-							<button class="outlined"> Add to cart </button></a
-						>
-						<button class="outlined"> Order now </button>
+					<div class="foot">
+						<h4 class="price">₱ {dish.price}</h4>
+						<div class="actions">
+							<a href={`/add-to-cart/${dish.id}`} title="add to cart">
+								<button class="outlined">
+									<span class="material-symbols-outlined">
+										add_shopping_cart
+									</span>
+								</button></a
+							>
+							<button class="outlined"> Order now </button>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -44,11 +50,12 @@
 </section>
 
 <style>
+	.price {
+		margin: 1rem 0;
+	}
 	.actions {
-		width: 100%;
 		display: flex;
-		align-items: center;
-		justify-content: space-between;
+		gap: 1rem;
 	}
 	section {
 		margin: auto;
@@ -130,8 +137,12 @@
 		header * {
 			width: 100%;
 		}
-		.actions {
-			margin-top: 1rem;
+		.foot {
+			width: 100%;
+			display: flex;
+			gap: 1rem;
+			align-items: center;
+			justify-content: space-between;
 		}
 	}
 </style>
