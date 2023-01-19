@@ -32,6 +32,7 @@
 					</div>
 					<div class="actions">
 						<h4>₱ {dish.price}</h4>
+						<button class="outlined"> Add to cart </button>
 						<button class="outlined"> Order now </button>
 					</div>
 				</div>
@@ -126,6 +127,9 @@
 		}
 		header * {
 			width: 100%;
+		}
+		.actions {
+			margin-top: 1rem;
 		}
 	}
 </style>
