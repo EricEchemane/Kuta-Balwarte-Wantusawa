@@ -1,3 +1,4 @@
+import { db } from '$lib/server/database';
 import { redirect } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 
@@ -7,5 +8,9 @@ export const load = (async ({ locals, params }) => {
 
 	const dishId = params.dishId;
 
-	return { user, dishId };
+	const dish = await db.dish.findUnique({ where: { id: dishId } });
+
+	if (!dish) throw redirect(302, '/404');
+
+	return { user, dish };
 }) satisfies PageServerLoad;
